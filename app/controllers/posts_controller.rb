@@ -8,12 +8,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Posts.new
   end
   # Adding a create method to the posts_controller.rb
 
 def create
-  @post = Post.new(params[:post])
+  @post = current_user.posts.build(params[:post])
 
   if @post.save
     flash[:notice] = "Post was saved."
