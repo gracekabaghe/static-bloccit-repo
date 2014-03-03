@@ -29,10 +29,11 @@ u = User.first
 u.skip_reconfirmation!
 u.update_attributes(email: 'youremail.com', password: 'helloworld', password_confirmation: 'helloworld')
 
+
+    end
+  end
+end
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"    
-    end
-  end
-end
