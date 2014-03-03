@@ -1,9 +1,8 @@
 require 'faker'
 
-# Create 15 topics
-topics = []
-
-
+User.destroy_all
+Post.destroy_all
+Comment.destroy_all
 
 rand(4..10).times do
   password = Faker::Lorem.characters(10)
@@ -37,8 +36,7 @@ end
 
 u = User.first
 u.skip_reconfirmation!
-u.update_attributes(email: 'grace......', password: 'helloworld', password_confirmation: 'helloworld')
-
+u.update_attributes(email: 'grace@yahoo.com', password: 'helloworld', password_confirmation: 'helloworld')
 
 puts "Seed finished"
 puts "#{User.count} users created"
