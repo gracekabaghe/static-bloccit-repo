@@ -64,10 +64,7 @@ u = User.new(
 u.skip_confirmation!
 u.save
 
-puts "Seed finished"
-puts "#{User.count} users created"
-puts "#{Post.count} posts created"
-puts "#{Comment.count} comments created"   
+
   topics = []
     15.times do
     topics << Topic.create(
@@ -91,3 +88,7 @@ puts "#{Comment.count} comments created"
     end
   end
 end
+puts "Seed finished"
+puts "#{User.count} users created"
+puts "#{Post.count} posts created"
+puts "#{Comment.count} comments created"   
