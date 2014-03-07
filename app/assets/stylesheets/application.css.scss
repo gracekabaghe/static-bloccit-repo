@@ -1,4 +1,12 @@
-"@import "bootstrap
+@import "bootswatch/flatly/variables";
+@import "bootstrap";
+
+body { padding-top: 60px; }
+
+@import "bootstrap-responsive";
+
+@import "bootswatch/flatly"
+
 .user-info {
   margin-top: 9px;
 }
