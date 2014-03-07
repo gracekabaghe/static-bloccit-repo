@@ -35,7 +35,7 @@ rand(4..10).times do
       body: Faker::Lorem.paragraphs(rand(1..4)).join("\n"))
     # set the created_at to a time within the past year
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
-    topic.rotate!
+    topics.rotate!
     # commets ....
   end  
     rand(3..7).times do
@@ -76,9 +76,56 @@ u = User.new(
 u.skip_confirmation!
 u.save
 
+    topics.rotate!
+    # commets ....
+   
+    rand(3..7).times do
+      p.comments.create(
+
+        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n")
+      )
     end
   end
 end
+
+  
+  u = User.new(
+  name: 'Admin User',
+  email: 'admin@example.com', 
+  password: 'helloworld', 
+  password_confirmation: 'helloworld')
+u.skip_confirmation!
+u.save
+u.update_attribute(:role, 'admin')
+
+u = User.new(
+  name: 'Moderator User',
+  email: 'moderator@example.com', 
+  password: 'helloworld', 
+  password_confirmation: 'helloworld')
+u.skip_confirmation!
+u.save
+u.update_attribute(:role, 'moderator')
+
+u = User.new(
+  name: 'Member User',
+  email: 'member@example.com', 
+  password: 'helloworld', 
+  password_confirmation: 'helloworld')
+u.skip_confirmation!
+u.save
+
+u = User.new(
+  name: 'Grace',
+  email: 'gracema2002@gmail.com',
+  password: 'password',
+  password_confirmation: 'password'
+  )
+u.skip_confirmation!
+u.save
+
+
+>>>>>>> d8f48f123330ce52422c41ab34fdba0b6263dcfb
 u = User.first
 u.skip_reconfirmation!
 u.update_attributes(email: 'gracema2002@gmail.com', password: 'password', password_confirmation: 'password')
@@ -86,4 +133,10 @@ u.update_attributes(email: 'gracema2002@gmail.com', password: 'password', passwo
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
+<<<<<<< HEAD
 puts "#{Comment.count} comments created"   
+=======
+
+puts "#{Comment.count} comments created"   
+
+>>>>>>> d8f48f123330ce52422c41ab34fdba0b6263dcfb
