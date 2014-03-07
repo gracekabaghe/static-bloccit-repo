@@ -35,12 +35,15 @@ rand(4..10).times do
       body: Faker::Lorem.paragraphs(rand(1..4)).join("\n"))
     # set the created_at to a time within the past year
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
-    topic.rotate!
+    topics.rotate!
     # commets ....
-  end  
+   
     rand(3..7).times do
       p.comments.create(
         body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
+    end
+  end
+end  
   u = User.new(
   name: 'Admin User',
   email: 'admin@example.com', 
@@ -76,9 +79,6 @@ u = User.new(
 u.skip_confirmation!
 u.save
 
-    end
-  end
-end
 u = User.first
 u.skip_reconfirmation!
 u.update_attributes(email: 'gracema2002@gmail.com', password: 'password', password_confirmation: 'password')
