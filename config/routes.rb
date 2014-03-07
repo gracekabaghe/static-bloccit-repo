@@ -3,11 +3,14 @@ Bloccit::Application.routes.draw do
   devise_for :users
 
   resources :topics do
-  
     resources :posts, except: [:index]
   end
 
-  match "about" => 'welcome#about', via: :get
+  get "about" => 'welcome#about'
 
-  root :to => 'welcome#index'
+  authenticated :user do
+    root to: 'topics#index'
+  end
+
+  root to: 'welcome#index'
 end
