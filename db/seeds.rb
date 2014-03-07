@@ -84,10 +84,6 @@ u.skip_confirmation!
 u.save
 
 
-u = User.first
-u.skip_reconfirmation!
-u.update_attributes(email: 'gracema2002@gmail.com', password: 'password', password_confirmation: 'password')
-
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
