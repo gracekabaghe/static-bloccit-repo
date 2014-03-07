@@ -8,18 +8,19 @@
   </head>
   <body>
     <div class="container">
-      <ul class="nav nav-tabs">
-        <li><%= link_to "Bloccit", root_path %></li>
-        <li><%= link_to "About", about_path %></li>
-          <div class="pull-right user-info">
-           <% if current_user %>
-             Hello <%= current_user.name %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-           <% else %>
-             <%= link_to "Sign In", new_user_session_path %> or 
-             <%= link_to "Sign Up", new_user_registration_path %>
-           <% end %>
-          </div>
-      </ul>
+      <header class="page-header">
+        <ul class="nav nav-tabs">
+          <li><%= link_to "Bloccit", root_path, class: 'logo' %></li>
+            <div class="pull-right user-info">
+             <% if current_user %>
+               Hello <%= current_user.name %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+             <% else %>
+               <%#= link_to "Sign In", new_user_session_path %>
+               <%#= link_to "Sign Up", new_user_registration_path %>
+             <% end %>
+            </div>
+        </ul>
+      </header>
 
       <% if flash[:notice] %>
         <div class="alert alert-success">
@@ -41,5 +42,14 @@
       <%= yield %>
     </div>
 
+  <footer>
+    <div class="inline list">
+      <div class="centered-content">
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "FAQ", about_path %></li>
+        <li><%= link_to "Contact", about_path %></li>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>
