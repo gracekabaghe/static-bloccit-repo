@@ -1,8 +1,5 @@
 require 'faker'
 
-<<<<<<< HEAD
-
-=======
 User.destroy_all
 Post.destroy_all
 Topic.destroy_all
@@ -14,7 +11,6 @@ topics = []
     description: Faker::Lorem.paragraph(rand(1..4))
   )
 end 
->>>>>>> nesting-posts
 
 rand(4..10).times do
   password = Faker::Lorem.characters(10)
@@ -44,17 +40,14 @@ rand(4..10).times do
    
     rand(3..7).times do
       p.comments.create(
-<<<<<<< HEAD
+
         body: Faker::Lorem.paragraphs(rand(1..2)).join("\n")
       )
     end
   end
 end
-=======
-        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
-    end
-  end
-end  
+
+  
   u = User.new(
   name: 'Admin User',
   email: 'admin@example.com', 
@@ -89,7 +82,7 @@ u = User.new(
   )
 u.skip_confirmation!
 u.save
->>>>>>> nesting-posts
+
 
 u = User.first
 u.skip_reconfirmation!
@@ -98,7 +91,6 @@ u.update_attributes(email: 'gracema2002@gmail.com', password: 'password', passwo
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
-<<<<<<< HEAD
-=======
+
 puts "#{Comment.count} comments created"   
->>>>>>> nesting-posts
+
