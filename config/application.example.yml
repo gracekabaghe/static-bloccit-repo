@@ -1,8 +1,8 @@
-AWS_ACCESS_KEY_ID: "AKIAIS4WAPWAEBABJC3A"
-AWS_SECRET_ACCESS_KEY: "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"
+AWS_ACCESS_KEY_ID:
+AWS_SECRET_ACCESS_KEY: 
 development:
-  SENDGRID_USERNAME: 'app22522857@heroku.com'
-  SENDGRID_PASSWORD: 'Masumba79'
+  SENDGRID_USERNAME: 
+  SENDGRID_PASSWORD: 
   AWS_BUCKET: first-bloccit-app-development
 production:
   AWS_BUCKET: first-bloccit-app-production
