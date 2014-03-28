@@ -3,6 +3,7 @@ require 'faker'
 User.destroy_all
 Post.destroy_all
 Topic.destroy_all
+Comment.destroy_all
 
 topics = []
 15.times do
@@ -46,10 +47,10 @@ rand(4..10).times do
     end
   end
 end
-    post_count = Post.count
+   
 User.all.each do |user|
   rand(30..50).times do
-    p = Post.find(rand(1..post_count))
+    p = Post.all.sample(1).first
     c = user.comments.create(
       body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"),
       post: p)

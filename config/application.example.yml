@@ -4,5 +4,9 @@ development:
   SENDGRID_USERNAME: 
   SENDGRID_PASSWORD: 
   AWS_BUCKET: first-bloccit-app-development
+  FACEBOOK_ID:
+  FACEBOOK_SECRET:
 production:
   AWS_BUCKET: first-bloccit-app-production
+  FACEBOOK_ID:
+  FACEBOOK_SECRET:
