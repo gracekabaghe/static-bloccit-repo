@@ -1,6 +1,5 @@
 Bloccit::Application.routes.draw do
 
-  get "comments/create"
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -13,6 +12,9 @@ Bloccit::Application.routes.draw do
   end
 
   match "about" => 'welcome#about', via: :get
+  authenticated :user do
+    root :to => 'topics#index'
+  end
 
   root :to => 'welcome#index'
 end
