@@ -27,6 +27,6 @@ class VotesController < ApplicationController
       else # create it
       @vote = current_user.votes.create(value: new_value, post: @post)
       end
-      redirect_to :back
+     
     end
 end
