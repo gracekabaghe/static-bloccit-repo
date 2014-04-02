@@ -13,6 +13,7 @@ class Post < ActiveRecord::Base
   validates :user, presence: true
 
   mount_uploader :image, ImageUploader
+  after_create :create_vote
 
 def up_votes
     self.votes.where(value: 1).count
@@ -25,4 +26,18 @@ def up_votes
   def points
     self.votes.sum(:value).to_i
   end
+
+  def update_rank
+    age = (self.created_at - Time.new(1970,1,1)) / 86400
+    new_rank = points + age
+
+    self.update_attribute(:rank, new_rank)
+  end
+
+   private
+
+  # Who ever created a post, should automatically be set to "voting" it up.
+  def create_vote
+    self.user.votes.create(value: 1, post: self)
+  end  
 end
