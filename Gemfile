@@ -13,8 +13,12 @@ group :development do
   gem 'sqlite3'
   gem 'pry-rails'
   gem 'quiet_assets'
+end
+
+group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner'
 end
 # Gems used only for assets and not required
 # in production environments by default.
